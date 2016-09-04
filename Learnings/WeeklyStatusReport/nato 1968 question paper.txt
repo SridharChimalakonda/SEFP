@@ -1,3 +1,4 @@
+Note: Questions have been prepared from pages 26-39.
 
 
 Q1) Which systems obey Logical completeness?
@@ -23,4 +24,4 @@ Ans) option (c) is correct.
 
 Fill in the blanks :
 1)	Each step taken in a process impact the quality of the final product.
-2)	The Dijkstraï¿½s work verifies the proof of correctness of a program.
+2)	The Dijkstra’s work verifies the proof of correctness of a program.
