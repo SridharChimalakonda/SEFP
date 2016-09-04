@@ -1,0 +1,26 @@
+
+
+Q1) Which systems obey Logical completeness?
+a)	Complete systems , but unreliable.
+b)	Incomplete systems, but reliable.
+c)	Complete systems, and reliable.
+d)	Incomplete systems, and unreliable.
+Ans : Option (a) and (c) are correct because according to logical completeness, it is better to have a system which is fully functional(error-free) even if it is unreliable. Because incomplete systems  are full of errors.
+
+Q2) What is relationship is true for processes to make a product and the final product itself?
+a)	For each process there is an impact on quality of the final product.
+b)	For each process there may or may not be an impact on quality of the final product.
+c)	Design-making decisions only impact a particular stage only.
+d)	For every decision made, there is a corresponding impact on all stages.
+Ans) option (a) and (d) are correct.
+
+Q3) What options is more appropriate?
+a)	Top-down approach: Building, Rooms, Floors; Bottom-up :  Satellites, Planets, Stars.
+b)	Bottom-up: City, State, Roads ;  Top-down: OS, Applications, programs. 
+c)	Top-down:   State, City, Roads ; Bottom-up: Satellites, Planets, Stars.
+d)	Top-down: OS, Applications, programs. ;Bottom-up:  moon, sun, earth.
+Ans) option (c) is correct.
+
+Fill in the blanks :
+1)	Each step taken in a process impact the quality of the final product.
+2)	The Dijkstra�s work verifies the proof of correctness of a program.
