@@ -1,0 +1,41 @@
+#overlay-back { 
+    position   : fixed; 
+    top        : 0; 
+    left       : 0; 
+    width      : 100%; 
+    height     : 100%; 
+    background : #000; 
+    opacity    : 0.85; 
+    filter     : alpha(opacity=0.85); 
+    z-index    : 5;
+    display    : none;
+} 
+ 
+#overlay { 
+    position : fixed; 
+    top      : 0; 
+    left     : 0; 
+    width    : 100%; 
+    height   : 100%; 
+    z-index  : 10;
+    display  : none;
+}
+
+#scan_text {
+    font-family: 'Montserrat', helvetica, sans-serif;
+    font-size: 20pt;
+    color: #6aee2c;
+    line-height: 1.5;
+    padding: 2%;
+}
+
+.teletype-prefix, .teletype-cursor { color: #f1fcf9; }
+/*
+body.loading {
+    overflow: hidden;   
+}
+
+body.loading .loader {
+    display: block;
+}
+*/

@@ -1,0 +1,256 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="">
+    <meta name="author" content="">
+
+    <title>Web Security Analysis</title>
+
+    <!-- Bootstrap Core CSS -->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css"><!--{% static "css/bootstrap.css" %}">-->
+
+    <!-- Custom Fonts -->
+    <link href="https://fonts.googleapis.com/css?family=Lato" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Catamaran:100,200,300,400,500,600,700,800,900" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Muli" rel="stylesheet">
+
+    <!-- Plugin CSS -->
+    <link rel="stylesheet" href="{% static "css/font-awesome.css" %}">
+    <link rel="stylesheet" href="{% static "css/simple-line-icons.css"%}">
+    <link rel="stylesheet" href="{% static "css/device-mockups.min.css"%}">
+    <link rel="stylesheet" href="{% static "css/my.css"%}">
+
+    <!-- Theme CSS -->
+    <link href="{% static "css/new-age.css"%}" rel="stylesheet">
+
+    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+</head>
+
+<body id="page-top">
+
+    <nav id="mainNav" class="navbar navbar-default navbar-fixed-top">
+        <div class="container">
+            <!-- Brand and toggle get grouped for better mobile display -->
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                    <span class="sr-only">Toggle navigation</span> Menu <i class="fa fa-bars"></i>
+                </button>
+                <a class="navbar-brand page-scroll" href="#page-top">Analyze Your Code Before Hackers Do</a>
+            </div>
+
+            <!-- Collect the nav links, forms, and other content for toggling -->
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                <ul class="nav navbar-nav navbar-right">
+                   
+                    <li>
+                    {% if user and not user.is_anonymous %}
+                        <a class="page-scroll" href="#download">{{user.get_full_name|default:user.username}}</a>
+
+                    {% else %}
+                        <a href="#" class="page-scroll">Login</a>
+
+                    {% endif %}
+                    </li>
+                    <li>
+                        <a class="page-scroll" href="#contact">About Us</a>
+                    </li>
+                </ul>
+            </div>
+            <!-- /.navbar-collapse -->
+        </div>
+        <!-- /.container-fluid -->
+    </nav>
+
+    <header>
+        {% block title %}
+
+        {% endblock %}
+    </header>
+    
+        <section id="features" class="features">
+{% block content %}
+{%endblock%}
+    </section>
+    <section id="contact" class="contact bg-primary">
+        <div class="container">
+            <h2>
+                <span class="glyphicon glyphicon-play text-success pull-left"></span><span class="pull-left">Abhishek Singh</span>
+                <span class="pull-right">Vishal Singh Rana</span><span class="glyphicon glyphicon-play text-success pull-right"></span>
+                <br>
+            </h2>
+            <h3>
+                <span class="pull-left" ><span class="glyphicon glyphicon-envelope" style="color:black"></span> abhishek.s14@iiits.in</span>
+                <span class="pull-right"><span class="glyphicon glyphicon-envelope" style="color:black"></span> vishal.s14@iiits.in</span>
+            </h3>
+            <br><br><br>
+            <h2>We would <i class="fa fa-heart"></i> to hear from security people!</h2>
+            <ul class="list-inline list-social">
+                <li class="social-twitter">
+                    <a href="#"><i class="fa fa-twitter"></i></a>
+                </li>
+                <li class="social-facebook">
+                    <a href="#"><i class="fa fa-facebook"></i></a>
+                </li>
+                <li class="social-google-plus">
+                    <a href="#"><i class="fa fa-google-plus"></i></a>
+                </li>
+            </ul>
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <p>&copy; 2016 tremblerz. All Rights Reserved. Thanks to <a href="https://startbootstrap.com/">Start Bootstrap</a> for template</p>
+        </div>
+    </footer>
+
+
+
+    <!-- jQuery -->
+    <script src="{% static "js/jquery.js"%}"></script>
+
+    <!-- Bootstrap Core JavaScript -->
+    <script src="{% static "js/bootstrap.js"%}"></script>
+
+    <!-- Plugin JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery-easing/1.3/jquery.easing.min.js"></script>
+
+    <!-- Console style text animation API -->
+    <script src="{% static "js/jquery.teletype.min.js"%}"></script>
+
+    <script>
+        function is_valid_url(url){
+            return /^(http(s)?:\/\/)?(www\.)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$/.test(url);
+        }
+
+        function run_scanner(url){
+            $('body').addClass("loading");
+            $('#overlay, #overlay-back').fadeIn(500);
+            document.getElementById('mainNav').style.display = "none";
+            document.getElementById('scan_status').style.display = "block";
+            $.ajax({
+                url:'scan',
+                type: 'POST',
+                data: {
+                    url: url,
+                    csrfmiddlewaretoken: "{{csrf_token}}",
+                },
+                success: function(result) {
+                    console.log(result)
+                    start_polling(result['job'])
+                }
+            });
+        }
+
+        function validate_url(url){
+            if (is_valid_url(url) == true) {
+                run_scanner(url);
+            }
+            else
+                $('#errorText').text("Please enter a valid URL");
+            return false;
+        }
+
+	    $( function() {
+	      $( '.type-text' ).each( function() {
+		      var items = $( this ).attr( 'title' ) + ';' + $( this ).text();
+		      $( this ).empty().attr( 'title', '' ).teletype( {
+		          text: $.map( items.split( ';' ), $.trim ),
+		          typeDelay: 40,
+		          backDelay: 20,
+		          cursor: '▋',
+		          delay: 3000,
+		          preserve: false,
+		          prefix: '[Scan Status ~]# ',
+		          loop: 0
+		      });
+	      });
+	    });
+
+        $('#url-input').keypress(function(e) {
+            if (e.which == 13) {
+                var url;
+                url = $(this).val();
+                console.log(url);
+                if (validate_url(url))
+                    run_scanner();
+                return false;
+            }
+        });
+
+        $('button#scan-button').click(function(){
+            var url;
+            url = $('#url-input').val();
+            console.log(url);
+            if (validate_url(url))
+                run_scanner();
+            return false;
+        });
+
+        $('button#stop-scan').click(function(){
+            $('body').removeClass("loading");
+            $('#overlay, #overlay-back').fadeOut(100);
+            document.getElementById('mainNav').style.display = "block";
+            document.getElementById('scan_status').style.display = "none";
+        });
+
+        /* To clear any error if user is in active mode of writing URL */
+        $('#url-input').focus(function(){
+            $('#errorText').text("");
+        });
+
+        function start_polling(task_id){
+            var poll_xhr;
+            var willstop = 0;
+            var poll = function(task_id){
+                //var json_dump = "{{ data }}";
+                //var task_id = "{{task_id}}";
+                console.log(task_id);
+                poll_xhr = $.ajax({
+                    url:'scan/poll_state',
+                    type: 'POST',
+                    data: {
+                        task_id: task_id,
+                        csrfmiddlewaretoken: "{{csrf_token}}",
+                    },
+                    success: function(result) {
+                        if (result.process_percent == null || result.process_percent == undefined) {
+
+                            //willstop = 1;
+                        }
+                        else {
+                            //jQuery('.bar').css({'width': result.process_percent + '%'});
+                            //jQuery('.bar').html(result.process_percent + '%');
+                            //document.getElementById("user-count").textContent="PROCRESSING";
+                        }
+                    }
+                });
+            };
+            var refreshIntervalId = setInterval(function() {
+                poll();
+                if(willstop == 1){
+                    clearInterval(refreshIntervalId);
+                }
+            },500);
+        };
+
+    </script>
+
+    <!-- Theme JavaScript -->
+    <script src="{% static "js/new-age.js"%}"></script>
+
+</body>
+
+</html>
