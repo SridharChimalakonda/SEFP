@@ -2,6 +2,57 @@ What you learnt inside the class?
 
 Week1
 
-#1 Learnt life cycles?
-#2 Learnt team work?
-#3 Learnt something....
+#1 Started with introduction to Software Engineering and explaining course structure.
+#2 Modification/Enhancement in Pokemon GO and building something on top of Augmented reality was discussed.
+#3 Some really nice ideas came up in the discussion.
+#4 Importance of quality was discussed.
+#5 We were asked to illustrate different kind of user sets for Pokemon GO.
+#6 A quote on Quality - "Something which can't be seen but carries essence, which can't be explained but can be experienced."
+
+Week2
+
+#1 Discussed 10-11 project ideas with my teammate. Few of them can be turned into a BIG startup !
+#2 I can't recall anything more right now. Will add it later.
+
+Week3
+
+#1 What is Software Engineering ? Different answers were explaned everytime ! and then finally one theoretical yet precise answer was told.
+#2 Movie making vs Software Engineering
+#3 An awesome motivational class by Arihant Sir
+#4 Insight to various foundational question like why to study RDBMS ? why to use python over C++ ?
+
+Week4
+
+#1 Importance of requirements in Software Engineering ! It's so critical ! I never thought this way.
+#2 Every lifecycle model revolves around Waterfall model.
+#3 Requirement specification should be unambiguous as much as possible.
+
+Week5
+
+#1 Many different models we studied today.
+#2 My personal vote will go for spiral model since the iterations changes the abstraction everytime.
+#3 Big debate on agile models. is comprehensive documentation good or we should focus more on final deliverables ?
+#4 Agile models(80%) + Unified processes(20%) = An amazing adaptive model
+#5 How to believe in someone else's code ? Will it affect the quality.
+
+Week6
+
+#1 Design is something inevitable in SE but still design in alone can't be used in project management there are other things as well to be considered.
+#2 Even code is also a design but it comes at the lowest level of granualarity.
+#3 Sir discussed my project with whole class and this helped me in analyzing my project even more. I also got to hear many good ideas from others about my topic probably I have to look things in the project differently.
+#4 A project design should go in this order: Goals->Constraints->Assumptions->Decisions->Ideas
+#5 Design is a representation/formulation of our solution to a given problem.
+
+Week7
+
+
+
+Week8
+
+#1 Revision of Class diagram and Sequence diagram.
+#2 Sequence diagrams give a nice visualization of our program flow. It makes use of Class Diagram and Use Case diagram.
+#3 Pattern based design was discussed.
+#4 Creational patterns and behavioural patterns.
+#5 Factory pattern - Not hardcoding data and program flow as much as possible and isolating hardcoded stuff so as to ensure design for flexibility.
+#6 Abstract pattern - Restricting the lower end developer to follow some particular guidelines/methods.
+#7 Factory Abstract pattern - well, this will be really long to express properly.

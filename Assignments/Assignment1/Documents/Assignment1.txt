@@ -1,0 +1,28 @@
+This is assignment1 where we are supposed to write 5 questions from NATO conferrence's paper.
+
+[MULTIPLE CHOICE QUESTIONS]
+Question 1. Choose valid ways of testing and evaluation as per Harr's theory for real-time software.
+            (a) Loading tests on complete hardware-software system.
+            (b) Simulation on a general purpose machine.
+            (c) Asking users to review the product.
+            (d) Performing static code analysis.
+Answer 1. (a),(b) [Reason: (c) is performed to verify whether our final product is compatible with use-case or not.
+                           (d) should be done while writing the program. ]
+
+Question 2. Acoording to Harr, regardless of how large or small a programming task is, it requires following some steps. Select suitable steps out of given choices.
+            (a) Organization used in program design process.
+            (b) Figuring out the problem by taking input from user.
+            (c) Analysis of revenue model by seeing specifications of product.
+            (d) Development of general purpose computer tools etc.      
+Answer 2. (a),(d) [Reason: (b) is not part of programming task.
+                           (c) is done while doing marketing of product. ]
+
+[FILL IN THE BLANKS]
+Question 3. NATO conference was organized to focus on three main concepts of Software Engineering and they were _____, ____ and ____.
+Answer 3. Design, Production and Service
+
+Question 4. According to Naur, the distinction between design and production is imposed by _______________________.
+Answer 4. Need for division of the labor.
+
+Question 5. As per Harr, documentation mainly consists of ___________ and __________.
+Answer 5. Methods used in preparation, User's manual.
